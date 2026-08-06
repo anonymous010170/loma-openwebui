@@ -1,0 +1,814 @@
+{
+  "mos": {
+    "en": {
+      "no_tuning": {
+        "l1_score": {
+          "mean": 4.56,
+          "std": 0.783,
+          "ci95_low": 4.407,
+          "ci95_high": 4.713,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.69,
+          "std": 0.545,
+          "ci95_low": 4.583,
+          "ci95_high": 4.797,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.66,
+          "std": 0.685,
+          "ci95_low": 4.526,
+          "ci95_high": 4.794,
+          "n": 100
+        }
+      },
+      "q8_0": {
+        "l1_score": {
+          "mean": 4.17,
+          "std": 1.129,
+          "ci95_low": 3.949,
+          "ci95_high": 4.391,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.4,
+          "std": 0.876,
+          "ci95_low": 4.228,
+          "ci95_high": 4.572,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.36,
+          "std": 1.02,
+          "ci95_low": 4.16,
+          "ci95_high": 4.56,
+          "n": 100
+        }
+      },
+      "q4_k_m": {
+        "l1_score": {
+          "mean": 4.01,
+          "std": 1.124,
+          "ci95_low": 3.79,
+          "ci95_high": 4.23,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.51,
+          "std": 0.611,
+          "ci95_low": 4.39,
+          "ci95_high": 4.63,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.21,
+          "std": 1.008,
+          "ci95_low": 4.012,
+          "ci95_high": 4.408,
+          "n": 100
+        }
+      }
+    },
+    "it": {
+      "no_tuning": {
+        "l1_score": {
+          "mean": 4.5,
+          "std": 0.81,
+          "ci95_low": 4.341,
+          "ci95_high": 4.659,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.64,
+          "std": 0.578,
+          "ci95_low": 4.527,
+          "ci95_high": 4.753,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.62,
+          "std": 0.722,
+          "ci95_low": 4.479,
+          "ci95_high": 4.761,
+          "n": 100
+        }
+      },
+      "q8_0": {
+        "l1_score": {
+          "mean": 4.27,
+          "std": 0.92,
+          "ci95_low": 4.09,
+          "ci95_high": 4.45,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.7,
+          "std": 0.482,
+          "ci95_low": 4.606,
+          "ci95_high": 4.794,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.52,
+          "std": 0.81,
+          "ci95_low": 4.361,
+          "ci95_high": 4.679,
+          "n": 100
+        }
+      },
+      "q4_k_m": {
+        "l1_score": {
+          "mean": 4.21,
+          "std": 0.957,
+          "ci95_low": 4.023,
+          "ci95_high": 4.397,
+          "n": 100
+        },
+        "l2_score": {
+          "mean": 4.68,
+          "std": 0.51,
+          "ci95_low": 4.58,
+          "ci95_high": 4.78,
+          "n": 100
+        },
+        "l3_score": {
+          "mean": 4.53,
+          "std": 0.797,
+          "ci95_low": 4.374,
+          "ci95_high": 4.686,
+          "n": 100
+        }
+      }
+    }
+  },
+  "friedman": {
+    "it": {
+      "l1_score": {
+        "stat": 12.8543,
+        "p": 0.0016,
+        "significant": true,
+        "n_blocks": 100
+      },
+      "l2_score": {
+        "stat": 0.9104,
+        "p": 0.6343,
+        "significant": false,
+        "n_blocks": 100
+      },
+      "l3_score": {
+        "stat": 1.0909,
+        "p": 0.5796,
+        "significant": false,
+        "n_blocks": 100
+      }
+    },
+    "en": {
+      "l1_score": {
+        "stat": 22.7981,
+        "p": 0.0,
+        "significant": true,
+        "n_blocks": 100
+      },
+      "l2_score": {
+        "stat": 8.9942,
+        "p": 0.0111,
+        "significant": true,
+        "n_blocks": 100
+      },
+      "l3_score": {
+        "stat": 18.7159,
+        "p": 0.0001,
+        "significant": true,
+        "n_blocks": 100
+      }
+    }
+  },
+  "wilcoxon": {
+    "it": {
+      "l1_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 198.0,
+          "p": 0.004,
+          "p_bonf": 0.012,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 427.5,
+          "p": 0.0072,
+          "p_bonf": 0.0216,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 445.5,
+          "p": 0.5467,
+          "p_bonf": 1.0,
+          "significant": false,
+          "n_blocks": 100
+        }
+      },
+      "l2_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 217.0,
+          "p": 0.3269,
+          "p_bonf": 0.9806,
+          "significant": false,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 219.5,
+          "p": 0.5385,
+          "p_bonf": 1.0,
+          "significant": false,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 175.5,
+          "p": 0.715,
+          "p_bonf": 1.0,
+          "significant": false,
+          "n_blocks": 100
+        }
+      },
+      "l3_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 211.0,
+          "p": 0.1891,
+          "p_bonf": 0.5672,
+          "significant": false,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 286.0,
+          "p": 0.2959,
+          "p_bonf": 0.8877,
+          "significant": false,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 314.0,
+          "p": 0.9864,
+          "p_bonf": 1.0,
+          "significant": false,
+          "n_blocks": 100
+        }
+      }
+    },
+    "en": {
+      "l1_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 265.0,
+          "p": 0.0018,
+          "p_bonf": 0.0054,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 236.5,
+          "p": 0.0,
+          "p_bonf": 0.0001,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 392.0,
+          "p": 0.1489,
+          "p_bonf": 0.4467,
+          "significant": false,
+          "n_blocks": 100
+        }
+      },
+      "l2_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 289.5,
+          "p": 0.0062,
+          "p_bonf": 0.0187,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 193.5,
+          "p": 0.0082,
+          "p_bonf": 0.0247,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 229.5,
+          "p": 0.2184,
+          "p_bonf": 0.6552,
+          "significant": false,
+          "n_blocks": 100
+        }
+      },
+      "l3_score": {
+        "no_tuning_vs_q8_0": {
+          "stat": 186.5,
+          "p": 0.0105,
+          "p_bonf": 0.0315,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "stat": 187.5,
+          "p": 0.0001,
+          "p_bonf": 0.0004,
+          "significant": true,
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "stat": 265.0,
+          "p": 0.1139,
+          "p_bonf": 0.3418,
+          "significant": false,
+          "n_blocks": 100
+        }
+      }
+    }
+  },
+  "cohen_r": {
+    "it": {
+      "l1_score": {
+        "no_tuning_vs_q8_0": {
+          "r": 0.4923,
+          "interpretation": "medium",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": 0.4025,
+          "interpretation": "medium",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": 0.1,
+          "interpretation": "small",
+          "n_blocks": 100
+        }
+      },
+      "l2_score": {
+        "no_tuning_vs_q8_0": {
+          "r": -0.178,
+          "interpretation": "small",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": -0.1149,
+          "interpretation": "small",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": 0.0714,
+          "interpretation": "negligible",
+          "n_blocks": 100
+        }
+      },
+      "l3_score": {
+        "no_tuning_vs_q8_0": {
+          "r": 0.2478,
+          "interpretation": "small",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": 0.1863,
+          "interpretation": "small",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": -0.0032,
+          "interpretation": "negligible",
+          "n_blocks": 100
+        }
+      }
+    },
+    "en": {
+      "l1_score": {
+        "no_tuning_vs_q8_0": {
+          "r": 0.5097,
+          "interpretation": "large",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": 0.6433,
+          "interpretation": "large",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": 0.2425,
+          "interpretation": "small",
+          "n_blocks": 100
+        }
+      },
+      "l2_score": {
+        "no_tuning_vs_q8_0": {
+          "r": 0.4406,
+          "interpretation": "medium",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": 0.4495,
+          "interpretation": "medium",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": -0.2286,
+          "interpretation": "small",
+          "n_blocks": 100
+        }
+      },
+      "l3_score": {
+        "no_tuning_vs_q8_0": {
+          "r": 0.4694,
+          "interpretation": "medium",
+          "n_blocks": 100
+        },
+        "no_tuning_vs_q4_k_m": {
+          "r": 0.6377,
+          "interpretation": "large",
+          "n_blocks": 100
+        },
+        "q8_0_vs_q4_k_m": {
+          "r": 0.2848,
+          "interpretation": "small",
+          "n_blocks": 100
+        }
+      }
+    }
+  },
+  "krippendorff": {
+    "no_tuning": {
+      "en": {
+        "l1_score": {
+          "alpha": 0.1429,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l2_score": {
+          "alpha": 0.0627,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l3_score": {
+          "alpha": 0.2394,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        }
+      },
+      "it": {
+        "l1_score": {
+          "alpha": 0.1872,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l2_score": {
+          "alpha": 0.1871,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l3_score": {
+          "alpha": 0.1202,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        }
+      }
+    },
+    "q8_0": {
+      "en": {
+        "l1_score": {
+          "alpha": 0.454,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l2_score": {
+          "alpha": 0.1806,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l3_score": {
+          "alpha": 0.1467,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        }
+      },
+      "it": {
+        "l1_score": {
+          "alpha": 0.3148,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l2_score": {
+          "alpha": 0.1304,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l3_score": {
+          "alpha": 0.2082,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        }
+      }
+    },
+    "q4_k_m": {
+      "en": {
+        "l1_score": {
+          "alpha": 0.4699,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l2_score": {
+          "alpha": 0.2034,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        },
+        "l3_score": {
+          "alpha": 0.282,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 20
+        }
+      },
+      "it": {
+        "l1_score": {
+          "alpha": 0.3786,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l2_score": {
+          "alpha": 0.1936,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        },
+        "l3_score": {
+          "alpha": 0.2957,
+          "acceptable": false,
+          "excellent": false,
+          "n_items": 19
+        }
+      }
+    }
+  },
+  "win_rate": {
+    "en": {
+      "no_tuning": {
+        "wins": 6,
+        "total_prompts": 20,
+        "win_rate": 0.3
+      },
+      "q8_0": {
+        "wins": 8,
+        "total_prompts": 20,
+        "win_rate": 0.4
+      },
+      "q4_k_m": {
+        "wins": 4,
+        "total_prompts": 20,
+        "win_rate": 0.2
+      },
+      "no_preference": {
+        "wins": 0,
+        "total_prompts": 20,
+        "win_rate": 0.0
+      },
+      "no_winner": {
+        "wins": 2,
+        "total_prompts": 20,
+        "win_rate": 0.1
+      }
+    },
+    "it": {
+      "no_tuning": {
+        "wins": 8,
+        "total_prompts": 20,
+        "win_rate": 0.4
+      },
+      "q8_0": {
+        "wins": 8,
+        "total_prompts": 20,
+        "win_rate": 0.4
+      },
+      "q4_k_m": {
+        "wins": 4,
+        "total_prompts": 20,
+        "win_rate": 0.2
+      },
+      "no_preference": {
+        "wins": 0,
+        "total_prompts": 20,
+        "win_rate": 0.0
+      },
+      "no_winner": {
+        "wins": 0,
+        "total_prompts": 20,
+        "win_rate": 0.0
+      }
+    }
+  },
+  "delta_thematic_area": {
+    "it": {
+      "Hygiene": {
+        "l1_score": {
+          "mos_M1": 4.4,
+          "mos_M2": 4.4,
+          "mos_M3": 4.64,
+          "delta_FT": 0.0,
+          "delta_Quant": 0.24
+        },
+        "l2_score": {
+          "mos_M1": 4.64,
+          "mos_M2": 4.8,
+          "mos_M3": 4.8,
+          "delta_FT": 0.16,
+          "delta_Quant": 0.0
+        },
+        "l3_score": {
+          "mos_M1": 4.6,
+          "mos_M2": 4.6,
+          "mos_M3": 4.88,
+          "delta_FT": 0.0,
+          "delta_Quant": 0.28
+        }
+      },
+      "Machine operating procedures": {
+        "l1_score": {
+          "mos_M1": 4.56,
+          "mos_M2": 4.36,
+          "mos_M3": 4.16,
+          "delta_FT": -0.2,
+          "delta_Quant": -0.2
+        },
+        "l2_score": {
+          "mos_M1": 4.76,
+          "mos_M2": 4.8,
+          "mos_M3": 4.72,
+          "delta_FT": 0.04,
+          "delta_Quant": -0.08
+        },
+        "l3_score": {
+          "mos_M1": 4.52,
+          "mos_M2": 4.56,
+          "mos_M3": 4.52,
+          "delta_FT": 0.04,
+          "delta_Quant": -0.04
+        }
+      },
+      "Quality": {
+        "l1_score": {
+          "mos_M1": 4.52,
+          "mos_M2": 4.04,
+          "mos_M3": 4.2,
+          "delta_FT": -0.48,
+          "delta_Quant": 0.16
+        },
+        "l2_score": {
+          "mos_M1": 4.64,
+          "mos_M2": 4.6,
+          "mos_M3": 4.72,
+          "delta_FT": -0.04,
+          "delta_Quant": 0.12
+        },
+        "l3_score": {
+          "mos_M1": 4.72,
+          "mos_M2": 4.4,
+          "mos_M3": 4.52,
+          "delta_FT": -0.32,
+          "delta_Quant": 0.12
+        }
+      },
+      "Troubleshooting": {
+        "l1_score": {
+          "mos_M1": 4.52,
+          "mos_M2": 4.28,
+          "mos_M3": 3.84,
+          "delta_FT": -0.24,
+          "delta_Quant": -0.44
+        },
+        "l2_score": {
+          "mos_M1": 4.52,
+          "mos_M2": 4.6,
+          "mos_M3": 4.48,
+          "delta_FT": 0.08,
+          "delta_Quant": -0.12
+        },
+        "l3_score": {
+          "mos_M1": 4.64,
+          "mos_M2": 4.52,
+          "mos_M3": 4.2,
+          "delta_FT": -0.12,
+          "delta_Quant": -0.32
+        }
+      }
+    },
+    "en": {
+      "Hygiene": {
+        "l1_score": {
+          "mos_M1": 4.28,
+          "mos_M2": 3.48,
+          "mos_M3": 3.48,
+          "delta_FT": -0.8,
+          "delta_Quant": 0.0
+        },
+        "l2_score": {
+          "mos_M1": 4.6,
+          "mos_M2": 4.28,
+          "mos_M3": 4.24,
+          "delta_FT": -0.32,
+          "delta_Quant": -0.04
+        },
+        "l3_score": {
+          "mos_M1": 4.4,
+          "mos_M2": 3.96,
+          "mos_M3": 3.8,
+          "delta_FT": -0.44,
+          "delta_Quant": -0.16
+        }
+      },
+      "Machine operating procedures": {
+        "l1_score": {
+          "mos_M1": 4.68,
+          "mos_M2": 4.72,
+          "mos_M3": 3.6,
+          "delta_FT": 0.04,
+          "delta_Quant": -1.12
+        },
+        "l2_score": {
+          "mos_M1": 4.8,
+          "mos_M2": 4.56,
+          "mos_M3": 4.4,
+          "delta_FT": -0.24,
+          "delta_Quant": -0.16
+        },
+        "l3_score": {
+          "mos_M1": 4.8,
+          "mos_M2": 4.64,
+          "mos_M3": 3.96,
+          "delta_FT": -0.16,
+          "delta_Quant": -0.68
+        }
+      },
+      "Quality": {
+        "l1_score": {
+          "mos_M1": 4.6,
+          "mos_M2": 3.8,
+          "mos_M3": 4.24,
+          "delta_FT": -0.8,
+          "delta_Quant": 0.44
+        },
+        "l2_score": {
+          "mos_M1": 4.72,
+          "mos_M2": 4.04,
+          "mos_M3": 4.64,
+          "delta_FT": -0.68,
+          "delta_Quant": 0.6
+        },
+        "l3_score": {
+          "mos_M1": 4.64,
+          "mos_M2": 4.16,
+          "mos_M3": 4.32,
+          "delta_FT": -0.48,
+          "delta_Quant": 0.16
+        }
+      },
+      "Troubleshooting": {
+        "l1_score": {
+          "mos_M1": 4.68,
+          "mos_M2": 4.68,
+          "mos_M3": 4.72,
+          "delta_FT": 0.0,
+          "delta_Quant": 0.04
+        },
+        "l2_score": {
+          "mos_M1": 4.64,
+          "mos_M2": 4.72,
+          "mos_M3": 4.76,
+          "delta_FT": 0.08,
+          "delta_Quant": 0.04
+        },
+        "l3_score": {
+          "mos_M1": 4.8,
+          "mos_M2": 4.68,
+          "mos_M3": 4.76,
+          "delta_FT": -0.12,
+          "delta_Quant": 0.08
+        }
+      }
+    }
+  }
+}

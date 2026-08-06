@@ -1,0 +1,9 @@
+.env
+models/
+kb/
+data/
+loma_agent/tmp
+loma_agent/__pycache__
+notebooks
+logs
+eval/*.xlsx

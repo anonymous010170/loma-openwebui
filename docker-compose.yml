@@ -1,0 +1,120 @@
+services:
+  ollama:
+    build:
+      context: ./ollama
+    container_name: ollama
+    ports:
+      - "${OLLAMA_PORT:-11434}:11434"
+    volumes:
+      - ollama:/root/.ollama
+      - ./models:/root/.ollama/models
+    networks:
+      - loma-network
+    environment:
+      - LOMA_MODEL=${LOMA_MODEL:-loma:q8_0}
+      - ROUTER_MODEL=${ROUTER_MODEL:-qwen3.5:2b}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-nomic-embed-text:latest}
+    restart: always
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "${QDRANT_PORT:-6333}:6333"
+    volumes:
+      - qdrant:/qdrant/storage
+    networks:
+      - loma-network
+    restart: always
+  
+  postgres-agno:
+    image: postgres:17-bookworm
+    container_name: postgres-loma
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USR}
+      - POSTGRES_PASSWORD=${POSTGRES_PWD}
+      - POSTGRES_DB=agno_agent_db
+    volumes:
+      - postgres-loma:/var/lib/postgresql/data
+    networks:
+      - loma-network
+    restart: always
+
+  agno-agent-api:
+    build: 
+      context: ./loma_agent
+    container_name: agno-agent-api-1
+    ports:
+      - "${AGNO_PORT:-8000}:8000"
+    environment:
+      - OLLAMA_HOST=ollama
+      - OLLAMA_PORT=11434
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+      - POSTGRES_URL=postgresql://${POSTGRES_USR}:${POSTGRES_PWD}@postgres-loma:${POSTGRES_PORT:-5432}/agno_agent_db
+      - LOMA_MODEL=${LOMA_MODEL:-loma:q8_0}
+      - ROUTER_MODEL=${ROUTER_MODEL:-qwen3.5:2b}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-nomic-embed-text:latest}
+      - EMBEDDING_DIMS=${EMBEDDING_DIMS:-768}
+    volumes:
+      - ./loma_agent:/app
+      - ./kb/Alarms:/app/kb/
+      - ./data:/app/data
+      - ./eval/:/app/eval
+    networks:
+      - loma-network
+    depends_on:
+      - ollama
+      - qdrant
+      - postgres-agno
+    restart: always
+
+  pipelines:
+    build:
+      context: ./pipelines
+      dockerfile: Dockerfile
+    container_name: pipelines
+    ports:
+      - "${PIPELINES_PORT:-9099}:9099"
+    environment:
+      - PIPELINES_API_KEY=${PIPELINES_API_KEY:-0p3n-w3bu!}
+      - OLLAMA_URL=http://ollama:11434
+      - QDRANT_URL=http://qdrant:6333
+      - LOMA_MODEL=${LOMA_MODEL:-loma:q8_0}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-nomic-embed-text:latest}
+      - EMBEDDING_DIMS=${EMBEDDING_DIMS:-768}
+    networks:
+      - loma-network
+    depends_on:
+      - agno-agent-api
+    restart: always
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui-loma
+    ports:
+      - "${OPENWEBUI_PORT:-3000}:8080"
+    volumes:
+      - open-webui:/app/backend/data
+    environment:
+      - WEBUI_SECRET_KEY=statwolf
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OPENAI_API_BASE_URL=http://pipelines:9099/v1
+      - OPENAI_API_KEY=${PIPELINES_API_KEY:-0p3n-w3bu!}
+    networks:
+      - loma-network
+    depends_on:
+      - pipelines
+    restart: always
+
+volumes:
+  ollama: {}
+  qdrant: {}
+  postgres-loma: {}
+  open-webui: {}
+
+networks:
+  loma-network:
+    driver: bridge
